@@ -1,0 +1,17 @@
+# lib
+kyrio_meros() {    
+
+    pragmatikos number1, number2;
+    
+    grapse("Enter two numbers: ");
+    diabase(number1, number2);
+
+    (*find minimum*)
+    an (number1<number2) {
+        grapse(number1);
+    } alliws {
+        grapse(number2);
+    }
+
+    epestrepse 0;
+}
