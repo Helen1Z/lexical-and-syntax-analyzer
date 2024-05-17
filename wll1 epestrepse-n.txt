@@ -1,0 +1,14 @@
+# lib
+kyrio_meros() {   
+
+    epestrepse 0;
+
+    grapse("Enter two numbers: ");
+
+    (*calculate the average*)
+    sum = number1 + number2;      
+    count=2;
+
+    grapse(number1, number2, sum/count);
+    epestrepse 0;
+}
