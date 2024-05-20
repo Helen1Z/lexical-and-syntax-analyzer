@@ -1,0 +1,4 @@
+# lib
+kyrio_meros() {
+    diabase(number1, number2);
+}
