@@ -1,9 +1,11 @@
 # lib
 kyrio_meros() {   
 
-    gia(0=0;1<0;1=1+1){
-        diabase(number1, number2);
-        diabase(number2, number1);
+    leksh str1,str2;
+    akeraios i;
+    gia(i=0;i<0;i=i+1){
+        diabase(number);
+        number=number+i;
     }
 
     pragmatikos num1, num2, num3, num4, num5, num6, num7;

@@ -7,12 +7,12 @@
 extern FILE *yyin, *yyout;
 
 void print_token(const char *token, const char *message) {
-printf("%s %s\n", token, message);
-fprintf(yyout, "%s %s\n", token, message);
+    printf("%s %s\n\n", token, message);
+    fprintf(yyout, "%s %s\n\n", token, message);
 }
 
 void yyerror(const char *msg){
-fprintf(stderr, "%s\n", msg);
+    fprintf(stderr, "%s\n", msg);
 }
 
 int my_fun();
@@ -28,7 +28,6 @@ int yylex();
 %token INC LIB
 %token LBRACE RBRACE MESSAGE
 
-
 %start program
 %right '='
 %left '+' '-'
@@ -36,7 +35,6 @@ int yylex();
 %left '<' '>'
 %left NEQ LEQ GEQ EQ
 %right UMINUS
-
 
 %%
 
@@ -53,33 +51,31 @@ stmt_list : stmt SEMI {print_token(";", "Syntax ok"); }
           | stmt_list loops
           ;
 
-
 library : INC LIB { print_token("libraries", "Syntax ok");} 
         ;     
 
-
-condition : expr '<' expr {$$= $1 < $3; print_token("<", "Syntax ok");}
-          | expr '>' expr {$$= $1 > $3; print_token(">", "Syntax ok");}
-          | expr NEQ expr {$$= $1 != $3; print_token("!=", "Syntax ok");}
-          | expr EQ expr {$$= $1 == $3; print_token("==", "Syntax ok");}
-          | expr LEQ expr {$$= $1 <= $3; print_token("<=", "Syntax ok");}
-          | expr GEQ expr {$$= $1 >= $3; print_token(">=", "Syntax ok");}
+condition : expr '<' expr {$$ = $1 < $3; print_token("<", "Syntax ok");}
+          | expr '>' expr {$$ = $1 > $3; print_token(">", "Syntax ok");}
+          | expr NEQ expr {$$ = $1 != $3; print_token("!=", "Syntax ok");}
+          | expr EQ expr {$$ = $1 == $3; print_token("==", "Syntax ok");}
+          | expr LEQ expr {$$ = $1 <= $3; print_token("<=", "Syntax ok");}
+          | expr GEQ expr {$$ = $1 >= $3; print_token(">=", "Syntax ok");}
           ;
 
-expr : expr '+' expr {$$= $1 + $3; print_token("+", "Syntax ok");}
-     | expr '-' expr {$$= $1 - $3; print_token("-", "Syntax ok");}
-     | expr '*' expr {$$= $1 * $3; print_token("*", "Syntax ok");}
+expr : expr '+' expr {$$ = $1 + $3; print_token("+", "Syntax ok");}
+     | expr '-' expr {$$ = $1 - $3; print_token("-", "Syntax ok");}
+     | expr '*' expr {$$ = $1 * $3; print_token("*", "Syntax ok");}
      | expr '/' expr  {$$ = $1 / $3; print_token("/", "Syntax ok");}
-     | expr '=' expr {$$= $3; print_token("=", "Syntax ok");}
-     | '(' expr ')' {$$= $2; print_token("()", "Syntax ok");}
-     | '-' expr %prec UMINUS {$$= -$2; print_token(" ", "Syntax ok");}
+     | expr '=' expr {$$ = $3; print_token("=", "Syntax ok");}
+     | '(' expr ')' {$$ = $2; print_token("()", "Syntax ok");}
+     | '-' expr %prec UMINUS {$$ = -$2; print_token("UMINUS", "Syntax ok");}
      | NUMBER { $$ = $1; print_token("number", "Syntax ok"); }
      | SYMBOL { $$ = 0; print_token("symbol", "Syntax ok"); }
-     //| expr
      ;
 
-stmt : AKER var_list {$$ = (int)$2; print_token("akeraios", "Syntax ok");} 
-     | PRAG var_list {$$ = (float)$2; print_token("pragmatikos", "Syntax ok");} 
+stmt : AKER var_list {print_token("akeraios", "Syntax ok");} 
+     | PRAG var_list {print_token("pragmatikos", "Syntax ok");} 
+     | LEKSH var_list { print_token("leksh", "Syntax ok"); }
      | DIABASE '(' var_list ')' { print_token("diabase", "Syntax ok");}
      | GRAPSE '(' var_list ')' { print_token("grapse", "Syntax ok");}
      | GRAPSE '(' MESSAGE ')' { print_token("grapse message", "Syntax ok");}
@@ -93,30 +89,31 @@ loops: OSO '(' condition ')' LBRACE stmt_list RBRACE {print_token("OSO", "Syntax
 
 var_list : expr
          | var_list ',' expr { print_token(",", "Syntax ok"); }
-         //| SEMI {print_token(";", "Syntax ok"); }
          ;
-
 
 %%
 
 int my_fun() {
     int c;
-    while ( ( c=getchar() ) ==' ');
-    if ( (c=='.') || (isdigit(c)) ) {
-    ungetc(c, stdin);
-    scanf("%lf", &yylval);
-    return NUMBER;
+    while ((c = getchar()) == ' ');
+    if ((c == '.') || (isdigit(c))) {
+        ungetc(c, stdin);
+        scanf("%lf", &yylval);
+        return NUMBER;
+    } else if (isalpha(c)) {
+        ungetc(c, stdin);
+        scanf("%*c");
+        yylval = 0;
+        return SYMBOL;
     }
-return c;
+    return c;
 }
 
 int main() {
-    yyin= fopen("wll1 an-n.txt", "r");
-    yyout= fopen("wll_analysis.txt", "w");
+    yyin = fopen("wll1 gia-n.txt", "r");
+    yyout = fopen("wll_analysis.txt", "w");
     yyparse();
     fclose(yyin); 
     fclose(yyout); 
     return 0;
 }
-
-

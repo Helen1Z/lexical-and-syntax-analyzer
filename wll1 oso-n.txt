@@ -2,7 +2,7 @@
 kyrio_meros() {   
 
     akeraios i;
-    oso(1>0){
+    oso(i>0){
         diabase(number1, number2);
     }
 

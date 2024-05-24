@@ -77,12 +77,12 @@
 extern FILE *yyin, *yyout;
 
 void print_token(const char *token, const char *message) {
-printf("%s %s\n", token, message);
-fprintf(yyout, "%s %s\n", token, message);
+    printf("%s %s\n\n", token, message);
+    fprintf(yyout, "%s %s\n\n", token, message);
 }
 
 void yyerror(const char *msg){
-fprintf(stderr, "%s\n", msg);
+    fprintf(stderr, "%s\n", msg);
 }
 
 int my_fun();
@@ -491,16 +491,16 @@ union yyalloc
 /* YYFINAL -- State number of the termination state.  */
 #define YYFINAL  8
 /* YYLAST -- Last index in YYTABLE.  */
-#define YYLAST   238
+#define YYLAST   260
 
 /* YYNTOKENS -- Number of terminals.  */
 #define YYNTOKENS  37
 /* YYNNTS -- Number of nonterminals.  */
 #define YYNNTS  10
 /* YYNRULES -- Number of rules.  */
-#define YYNRULES  36
+#define YYNRULES  37
 /* YYNSTATES -- Number of states.  */
-#define YYNSTATES  97
+#define YYNSTATES  99
 
 /* YYMAXUTOK -- Last valid token kind.  */
 #define YYMAXUTOK   281
@@ -552,10 +552,10 @@ static const yytype_int8 yytranslate[] =
 /* YYRLINE[YYN] -- Source line where rule number YYN was defined.  */
 static const yytype_int8 yyrline[] =
 {
-       0,    43,    43,    44,    47,    50,    51,    52,    53,    57,
-      61,    62,    63,    64,    65,    66,    69,    70,    71,    72,
-      73,    74,    75,    76,    77,    81,    82,    83,    84,    85,
-      86,    87,    90,    91,    92,    94,    95
+       0,    41,    41,    42,    45,    48,    49,    50,    51,    54,
+      57,    58,    59,    60,    61,    62,    65,    66,    67,    68,
+      69,    70,    71,    72,    73,    76,    77,    78,    79,    80,
+      81,    82,    83,    86,    87,    88,    90,    91
 };
 #endif
 
@@ -587,7 +587,7 @@ yysymbol_name (yysymbol_kind_t yysymbol)
 }
 #endif
 
-#define YYPACT_NINF (-29)
+#define YYPACT_NINF (-30)
 
 #define yypact_value_is_default(Yyn) \
   ((Yyn) == YYPACT_NINF)
@@ -601,16 +601,16 @@ yysymbol_name (yysymbol_kind_t yysymbol)
    STATE-NUM.  */
 static const yytype_int16 yypact[] =
 {
-     -11,   -19,    13,    38,   -29,    23,   185,   -29,   -29,   -29,
-     -29,   -29,     9,     9,    28,    30,    33,    35,    36,     9,
-       9,     9,    75,   208,    67,   -29,   208,    39,    39,     9,
-       9,     9,     8,     9,   208,   -29,   188,   -29,    77,   -29,
-       9,     9,     9,     9,     9,   -29,     9,    47,    18,   180,
-      48,    49,   -13,    25,   -29,   -29,   208,   -14,   -14,   -29,
-     -29,   208,    68,     9,     9,     9,     9,     9,     9,     9,
-      69,   -29,   -29,   -29,   185,   208,   208,   208,   208,   208,
-     208,    94,   185,    97,     9,   119,   -29,   198,    85,    81,
-      82,   185,   185,   141,   163,   -29,   -29
+     -10,   -18,    -4,    24,   -30,    12,   207,   -30,   -30,   -30,
+     -30,   -30,     9,     9,     9,     7,    18,    30,    32,    35,
+       9,     9,     9,    77,   230,    69,   -30,   230,    41,    41,
+      41,     9,     9,     9,    10,     9,   230,   -30,   210,   -30,
+      79,   -30,     9,     9,     9,     9,     9,   -30,     9,    46,
+      19,   202,    49,    50,   -19,    27,   -30,   -30,   230,    42,
+      42,   -30,   -30,   230,    63,     9,     9,     9,     9,     9,
+       9,     9,    70,   -30,   -30,   -30,   207,   230,   230,   230,
+     230,   230,   230,    90,   207,   103,     9,   129,   -30,   220,
+      82,    76,    80,   207,   207,   155,   181,   -30,   -30
 };
 
 /* YYDEFACT[STATE-NUM] -- Default reduction number in state STATE-NUM.
@@ -620,26 +620,26 @@ static const yytype_int8 yydefact[] =
 {
        0,     0,     0,     0,     2,     0,     0,     9,     1,     3,
       23,    24,     0,     0,     0,     0,     0,     0,     0,     0,
-       0,     0,     0,    31,     0,     7,    35,    25,    26,     0,
-       0,     0,     0,     0,    30,    22,     0,     4,     0,     8,
-       0,     0,     0,     0,     0,     5,     0,     0,     0,     0,
-       0,     0,     0,     0,    21,     6,    20,    16,    17,    18,
-      19,    36,     0,     0,     0,     0,     0,     0,     0,     0,
-       0,    29,    28,    27,     0,    12,    14,    15,    13,    10,
-      11,     0,     0,     0,     0,     0,    32,     0,     0,     0,
-       0,     0,     0,     0,     0,    34,    33
+       0,     0,     0,     0,    32,     0,     7,    36,    25,    26,
+      27,     0,     0,     0,     0,     0,    31,    22,     0,     4,
+       0,     8,     0,     0,     0,     0,     0,     5,     0,     0,
+       0,     0,     0,     0,     0,     0,    21,     6,    20,    16,
+      17,    18,    19,    37,     0,     0,     0,     0,     0,     0,
+       0,     0,     0,    30,    29,    28,     0,    12,    14,    15,
+      13,    10,    11,     0,     0,     0,     0,     0,    33,     0,
+       0,     0,     0,     0,     0,     0,     0,    35,    34
 };
 
 /* YYPGOTO[NTERM-NUM].  */
 static const yytype_int8 yypgoto[] =
 {
-     -29,   -29,   101,     5,   -29,   -28,   -12,   -20,   -17,    26
+     -30,   -30,    95,    36,   -30,   -29,   -12,   -20,   -17,    26
 };
 
 /* YYDEFGOTO[NTERM-NUM].  */
 static const yytype_int8 yydefgoto[] =
 {
-       0,     3,     4,    22,     5,    47,    23,    24,    25,    27
+       0,     3,     4,    23,     5,    49,    24,    25,    26,    28
 };
 
 /* YYTABLE[YYPACT[STATE-NUM]] -- What to do in state STATE-NUM.  If
@@ -647,58 +647,64 @@ static const yytype_int8 yydefgoto[] =
    number is the opposite.  If YYTABLE_NINF, syntax error.  */
 static const yytype_int8 yytable[] =
 {
-      26,    26,    38,    50,     6,    39,     1,    34,    35,    36,
-       2,    10,    10,    11,    11,    43,    44,    48,    49,    48,
-      26,    26,    72,    46,    63,    64,    65,    66,    56,    57,
-      58,    59,    60,    51,    61,     7,    20,    20,     8,    28,
-       1,    81,    21,    21,    40,    41,    42,    43,    44,    67,
-      68,    75,    76,    77,    78,    79,    80,    48,    52,    53,
-      73,    46,    29,    38,    30,    38,    39,    31,    39,    32,
-      33,    45,    87,    38,    38,    46,    39,    39,    10,    83,
-      11,    55,    62,    70,    71,    12,    13,    85,    14,    15,
-      16,    74,    82,    17,    18,    19,    93,    94,    84,    37,
-      10,    90,    11,    20,    91,    92,     9,    12,    13,    21,
-      14,    15,    16,     0,     0,    17,    18,    19,     0,     0,
-       0,    86,    10,     0,    11,    20,     0,     0,     0,    12,
-      13,    21,    14,    15,    16,     0,     0,    17,    18,    19,
-       0,     0,     0,    88,    10,     0,    11,    20,     0,     0,
-       0,    12,    13,    21,    14,    15,    16,     0,     0,    17,
-      18,    19,     0,     0,     0,    95,    10,     0,    11,    20,
-       0,     0,     0,    12,    13,    21,    14,    15,    16,     0,
-       0,    17,    18,    19,    69,     0,     0,    96,    10,     0,
-      11,    20,     0,     0,     0,    12,    13,    21,    14,    15,
-      16,     0,     0,    17,    18,    19,    40,    41,    42,    43,
-      44,     0,     0,    20,    40,    41,    42,    43,    44,    21,
-       0,     0,     0,    54,    40,    41,    42,    43,    44,     0,
-       0,     0,     0,    89,    40,    41,    42,    43,    44
+      27,    27,    27,    40,    52,     6,    41,     1,    36,    37,
+      38,     2,    10,    10,    11,    11,    74,    48,     7,    50,
+      51,    50,    27,    27,     8,    65,    66,    67,    68,     1,
+      58,    59,    60,    61,    62,    53,    63,    21,    21,    29,
+      30,    31,    83,    22,    22,    42,    43,    44,    45,    46,
+      69,    70,    32,    77,    78,    79,    80,    81,    82,    50,
+      54,    55,    75,    48,    33,    40,    34,    40,    41,    35,
+      41,    45,    46,    47,    89,    40,    40,    48,    41,    41,
+      10,    64,    11,    57,    72,    73,    76,    12,    13,    14,
+      15,    16,    17,    84,    86,    18,    19,    20,    92,    93,
+       9,    39,     0,    94,     0,    21,    10,     0,    11,     0,
+       0,    22,    85,    12,    13,    14,    15,    16,    17,     0,
+      87,    18,    19,    20,     0,     0,     0,    88,     0,    95,
+      96,    21,    10,     0,    11,     0,     0,    22,     0,    12,
+      13,    14,    15,    16,    17,     0,     0,    18,    19,    20,
+       0,     0,     0,    90,     0,     0,     0,    21,    10,     0,
+      11,     0,     0,    22,     0,    12,    13,    14,    15,    16,
+      17,     0,     0,    18,    19,    20,     0,     0,     0,    97,
+       0,     0,     0,    21,    10,     0,    11,     0,     0,    22,
+       0,    12,    13,    14,    15,    16,    17,     0,     0,    18,
+      19,    20,     0,     0,     0,    98,    71,     0,     0,    21,
+      10,     0,    11,     0,     0,    22,     0,    12,    13,    14,
+      15,    16,    17,     0,     0,    18,    19,    20,    42,    43,
+      44,    45,    46,     0,     0,    21,    42,    43,    44,    45,
+      46,    22,     0,     0,     0,    56,    42,    43,    44,    45,
+      46,     0,     0,     0,     0,    91,    42,    43,    44,    45,
+      46
 };
 
 static const yytype_int8 yycheck[] =
 {
-      12,    13,    22,    31,    23,    22,    17,    19,    20,    21,
-      21,     3,     3,     5,     5,    29,    30,    29,    30,    31,
-      32,    33,    35,    36,     6,     7,     8,     9,    40,    41,
-      42,    43,    44,    25,    46,    22,    28,    28,     0,    13,
-      17,    69,    34,    34,    26,    27,    28,    29,    30,    31,
-      32,    63,    64,    65,    66,    67,    68,    69,    32,    33,
-      35,    36,    34,    83,    34,    85,    83,    34,    85,    34,
-      34,     4,    84,    93,    94,    36,    93,    94,     3,    74,
-       5,     4,    35,    35,    35,    10,    11,    82,    13,    14,
-      15,    23,    23,    18,    19,    20,    91,    92,     4,    24,
-       3,    16,     5,    28,    23,    23,     5,    10,    11,    34,
-      13,    14,    15,    -1,    -1,    18,    19,    20,    -1,    -1,
-      -1,    24,     3,    -1,     5,    28,    -1,    -1,    -1,    10,
-      11,    34,    13,    14,    15,    -1,    -1,    18,    19,    20,
-      -1,    -1,    -1,    24,     3,    -1,     5,    28,    -1,    -1,
-      -1,    10,    11,    34,    13,    14,    15,    -1,    -1,    18,
-      19,    20,    -1,    -1,    -1,    24,     3,    -1,     5,    28,
-      -1,    -1,    -1,    10,    11,    34,    13,    14,    15,    -1,
-      -1,    18,    19,    20,     4,    -1,    -1,    24,     3,    -1,
-       5,    28,    -1,    -1,    -1,    10,    11,    34,    13,    14,
-      15,    -1,    -1,    18,    19,    20,    26,    27,    28,    29,
-      30,    -1,    -1,    28,    26,    27,    28,    29,    30,    34,
-      -1,    -1,    -1,    35,    26,    27,    28,    29,    30,    -1,
-      -1,    -1,    -1,    35,    26,    27,    28,    29,    30
+      12,    13,    14,    23,    33,    23,    23,    17,    20,    21,
+      22,    21,     3,     3,     5,     5,    35,    36,    22,    31,
+      32,    33,    34,    35,     0,     6,     7,     8,     9,    17,
+      42,    43,    44,    45,    46,    25,    48,    28,    28,    13,
+      14,    34,    71,    34,    34,    26,    27,    28,    29,    30,
+      31,    32,    34,    65,    66,    67,    68,    69,    70,    71,
+      34,    35,    35,    36,    34,    85,    34,    87,    85,    34,
+      87,    29,    30,     4,    86,    95,    96,    36,    95,    96,
+       3,    35,     5,     4,    35,    35,    23,    10,    11,    12,
+      13,    14,    15,    23,     4,    18,    19,    20,    16,    23,
+       5,    24,    -1,    23,    -1,    28,     3,    -1,     5,    -1,
+      -1,    34,    76,    10,    11,    12,    13,    14,    15,    -1,
+      84,    18,    19,    20,    -1,    -1,    -1,    24,    -1,    93,
+      94,    28,     3,    -1,     5,    -1,    -1,    34,    -1,    10,
+      11,    12,    13,    14,    15,    -1,    -1,    18,    19,    20,
+      -1,    -1,    -1,    24,    -1,    -1,    -1,    28,     3,    -1,
+       5,    -1,    -1,    34,    -1,    10,    11,    12,    13,    14,
+      15,    -1,    -1,    18,    19,    20,    -1,    -1,    -1,    24,
+      -1,    -1,    -1,    28,     3,    -1,     5,    -1,    -1,    34,
+      -1,    10,    11,    12,    13,    14,    15,    -1,    -1,    18,
+      19,    20,    -1,    -1,    -1,    24,     4,    -1,    -1,    28,
+       3,    -1,     5,    -1,    -1,    34,    -1,    10,    11,    12,
+      13,    14,    15,    -1,    -1,    18,    19,    20,    26,    27,
+      28,    29,    30,    -1,    -1,    28,    26,    27,    28,    29,
+      30,    34,    -1,    -1,    -1,    35,    26,    27,    28,    29,
+      30,    -1,    -1,    -1,    -1,    35,    26,    27,    28,    29,
+      30
 };
 
 /* YYSTOS[STATE-NUM] -- The symbol kind of the accessing symbol of
@@ -706,15 +712,15 @@ static const yytype_int8 yycheck[] =
 static const yytype_int8 yystos[] =
 {
        0,    17,    21,    38,    39,    41,    23,    22,     0,    39,
-       3,     5,    10,    11,    13,    14,    15,    18,    19,    20,
-      28,    34,    40,    43,    44,    45,    43,    46,    46,    34,
-      34,    34,    34,    34,    43,    43,    43,    24,    44,    45,
-      26,    27,    28,    29,    30,     4,    36,    42,    43,    43,
-      42,    25,    46,    46,    35,     4,    43,    43,    43,    43,
-      43,    43,    35,     6,     7,     8,     9,    31,    32,     4,
-      35,    35,    35,    35,    23,    43,    43,    43,    43,    43,
-      43,    42,    23,    40,     4,    40,    24,    43,    24,    35,
-      16,    23,    23,    40,    40,    24,    24
+       3,     5,    10,    11,    12,    13,    14,    15,    18,    19,
+      20,    28,    34,    40,    43,    44,    45,    43,    46,    46,
+      46,    34,    34,    34,    34,    34,    43,    43,    43,    24,
+      44,    45,    26,    27,    28,    29,    30,     4,    36,    42,
+      43,    43,    42,    25,    46,    46,    35,     4,    43,    43,
+      43,    43,    43,    43,    35,     6,     7,     8,     9,    31,
+      32,     4,    35,    35,    35,    35,    23,    43,    43,    43,
+      43,    43,    43,    42,    23,    40,     4,    40,    24,    43,
+      24,    35,    16,    23,    23,    40,    40,    24,    24
 };
 
 /* YYR1[RULE-NUM] -- Symbol kind of the left-hand side of rule RULE-NUM.  */
@@ -723,7 +729,7 @@ static const yytype_int8 yyr1[] =
        0,    37,    38,    38,    39,    40,    40,    40,    40,    41,
       42,    42,    42,    42,    42,    42,    43,    43,    43,    43,
       43,    43,    43,    43,    43,    44,    44,    44,    44,    44,
-      44,    44,    45,    45,    45,    46,    46
+      44,    44,    44,    45,    45,    45,    46,    46
 };
 
 /* YYR2[RULE-NUM] -- Number of symbols on the right-hand side of rule RULE-NUM.  */
@@ -731,8 +737,8 @@ static const yytype_int8 yyr2[] =
 {
        0,     2,     1,     2,     4,     2,     3,     1,     2,     2,
        3,     3,     3,     3,     3,     3,     3,     3,     3,     3,
-       3,     3,     2,     1,     1,     2,     2,     4,     4,     4,
-       2,     1,     7,    11,    11,     1,     3
+       3,     3,     2,     1,     1,     2,     2,     2,     4,     4,
+       4,     2,     1,     7,    11,    11,     1,     3
 };
 
 
@@ -1196,181 +1202,187 @@ yyreduce:
   switch (yyn)
     {
   case 4: /* main: KYRIO_MEROS LBRACE stmt_list RBRACE  */
-#line 47 "project.y"
+#line 45 "project.y"
                                            { print_token("kyrio_meros", "Syntax ok");}
-#line 1202 "project.tab.c"
-    break;
-
-  case 5: /* stmt_list: stmt SEMI  */
-#line 50 "project.y"
-                      {print_token(";", "Syntax ok"); }
 #line 1208 "project.tab.c"
     break;
 
-  case 6: /* stmt_list: stmt_list stmt SEMI  */
-#line 51 "project.y"
-                                {print_token(";", "Syntax ok"); }
+  case 5: /* stmt_list: stmt SEMI  */
+#line 48 "project.y"
+                      {print_token(";", "Syntax ok"); }
 #line 1214 "project.tab.c"
     break;
 
-  case 9: /* library: INC LIB  */
-#line 57 "project.y"
-                  { print_token("libraries", "Syntax ok");}
+  case 6: /* stmt_list: stmt_list stmt SEMI  */
+#line 49 "project.y"
+                                {print_token(";", "Syntax ok"); }
 #line 1220 "project.tab.c"
     break;
 
-  case 10: /* condition: expr '<' expr  */
-#line 61 "project.y"
-                          {yyval= yyvsp[-2] < yyvsp[0]; print_token("<", "Syntax ok");}
+  case 9: /* library: INC LIB  */
+#line 54 "project.y"
+                  { print_token("libraries", "Syntax ok");}
 #line 1226 "project.tab.c"
     break;
 
-  case 11: /* condition: expr '>' expr  */
-#line 62 "project.y"
-                          {yyval= yyvsp[-2] > yyvsp[0]; print_token(">", "Syntax ok");}
+  case 10: /* condition: expr '<' expr  */
+#line 57 "project.y"
+                          {yyval = yyvsp[-2] < yyvsp[0]; print_token("<", "Syntax ok");}
 #line 1232 "project.tab.c"
     break;
 
-  case 12: /* condition: expr NEQ expr  */
-#line 63 "project.y"
-                          {yyval= yyvsp[-2] != yyvsp[0]; print_token("!=", "Syntax ok");}
+  case 11: /* condition: expr '>' expr  */
+#line 58 "project.y"
+                          {yyval = yyvsp[-2] > yyvsp[0]; print_token(">", "Syntax ok");}
 #line 1238 "project.tab.c"
     break;
 
-  case 13: /* condition: expr EQ expr  */
-#line 64 "project.y"
-                         {yyval= yyvsp[-2] == yyvsp[0]; print_token("==", "Syntax ok");}
+  case 12: /* condition: expr NEQ expr  */
+#line 59 "project.y"
+                          {yyval = yyvsp[-2] != yyvsp[0]; print_token("!=", "Syntax ok");}
 #line 1244 "project.tab.c"
     break;
 
-  case 14: /* condition: expr LEQ expr  */
-#line 65 "project.y"
-                          {yyval= yyvsp[-2] <= yyvsp[0]; print_token("<=", "Syntax ok");}
+  case 13: /* condition: expr EQ expr  */
+#line 60 "project.y"
+                         {yyval = yyvsp[-2] == yyvsp[0]; print_token("==", "Syntax ok");}
 #line 1250 "project.tab.c"
     break;
 
-  case 15: /* condition: expr GEQ expr  */
-#line 66 "project.y"
-                          {yyval= yyvsp[-2] >= yyvsp[0]; print_token(">=", "Syntax ok");}
+  case 14: /* condition: expr LEQ expr  */
+#line 61 "project.y"
+                          {yyval = yyvsp[-2] <= yyvsp[0]; print_token("<=", "Syntax ok");}
 #line 1256 "project.tab.c"
     break;
 
-  case 16: /* expr: expr '+' expr  */
-#line 69 "project.y"
-                     {yyval= yyvsp[-2] + yyvsp[0]; print_token("+", "Syntax ok");}
+  case 15: /* condition: expr GEQ expr  */
+#line 62 "project.y"
+                          {yyval = yyvsp[-2] >= yyvsp[0]; print_token(">=", "Syntax ok");}
 #line 1262 "project.tab.c"
     break;
 
-  case 17: /* expr: expr '-' expr  */
-#line 70 "project.y"
-                     {yyval= yyvsp[-2] - yyvsp[0]; print_token("-", "Syntax ok");}
+  case 16: /* expr: expr '+' expr  */
+#line 65 "project.y"
+                     {yyval = yyvsp[-2] + yyvsp[0]; print_token("+", "Syntax ok");}
 #line 1268 "project.tab.c"
     break;
 
-  case 18: /* expr: expr '*' expr  */
-#line 71 "project.y"
-                     {yyval= yyvsp[-2] * yyvsp[0]; print_token("*", "Syntax ok");}
+  case 17: /* expr: expr '-' expr  */
+#line 66 "project.y"
+                     {yyval = yyvsp[-2] - yyvsp[0]; print_token("-", "Syntax ok");}
 #line 1274 "project.tab.c"
     break;
 
-  case 19: /* expr: expr '/' expr  */
-#line 72 "project.y"
-                      {yyval = yyvsp[-2] / yyvsp[0]; print_token("/", "Syntax ok");}
+  case 18: /* expr: expr '*' expr  */
+#line 67 "project.y"
+                     {yyval = yyvsp[-2] * yyvsp[0]; print_token("*", "Syntax ok");}
 #line 1280 "project.tab.c"
     break;
 
-  case 20: /* expr: expr '=' expr  */
-#line 73 "project.y"
-                     {yyval= yyvsp[0]; print_token("=", "Syntax ok");}
+  case 19: /* expr: expr '/' expr  */
+#line 68 "project.y"
+                      {yyval = yyvsp[-2] / yyvsp[0]; print_token("/", "Syntax ok");}
 #line 1286 "project.tab.c"
     break;
 
-  case 21: /* expr: '(' expr ')'  */
-#line 74 "project.y"
-                    {yyval= yyvsp[-1]; print_token("()", "Syntax ok");}
+  case 20: /* expr: expr '=' expr  */
+#line 69 "project.y"
+                     {yyval = yyvsp[0]; print_token("=", "Syntax ok");}
 #line 1292 "project.tab.c"
     break;
 
-  case 22: /* expr: '-' expr  */
-#line 75 "project.y"
-                             {yyval= -yyvsp[0]; print_token(" ", "Syntax ok");}
+  case 21: /* expr: '(' expr ')'  */
+#line 70 "project.y"
+                    {yyval = yyvsp[-1]; print_token("()", "Syntax ok");}
 #line 1298 "project.tab.c"
     break;
 
-  case 23: /* expr: NUMBER  */
-#line 76 "project.y"
-              { yyval = yyvsp[0]; print_token("number", "Syntax ok"); }
+  case 22: /* expr: '-' expr  */
+#line 71 "project.y"
+                             {yyval = -yyvsp[0]; print_token("UMINUS", "Syntax ok");}
 #line 1304 "project.tab.c"
     break;
 
-  case 24: /* expr: SYMBOL  */
-#line 77 "project.y"
-              { yyval = 0; print_token("symbol", "Syntax ok"); }
+  case 23: /* expr: NUMBER  */
+#line 72 "project.y"
+              { yyval = yyvsp[0]; print_token("number", "Syntax ok"); }
 #line 1310 "project.tab.c"
     break;
 
-  case 25: /* stmt: AKER var_list  */
-#line 81 "project.y"
-                     {yyval = (int)yyvsp[0]; print_token("akeraios", "Syntax ok");}
+  case 24: /* expr: SYMBOL  */
+#line 73 "project.y"
+              { yyval = 0; print_token("symbol", "Syntax ok"); }
 #line 1316 "project.tab.c"
     break;
 
-  case 26: /* stmt: PRAG var_list  */
-#line 82 "project.y"
-                     {yyval = (float)yyvsp[0]; print_token("pragmatikos", "Syntax ok");}
+  case 25: /* stmt: AKER var_list  */
+#line 76 "project.y"
+                     {print_token("akeraios", "Syntax ok");}
 #line 1322 "project.tab.c"
     break;
 
-  case 27: /* stmt: DIABASE '(' var_list ')'  */
-#line 83 "project.y"
-                                { print_token("diabase", "Syntax ok");}
+  case 26: /* stmt: PRAG var_list  */
+#line 77 "project.y"
+                     {print_token("pragmatikos", "Syntax ok");}
 #line 1328 "project.tab.c"
     break;
 
-  case 28: /* stmt: GRAPSE '(' var_list ')'  */
-#line 84 "project.y"
-                               { print_token("grapse", "Syntax ok");}
+  case 27: /* stmt: LEKSH var_list  */
+#line 78 "project.y"
+                      { print_token("leksh", "Syntax ok"); }
 #line 1334 "project.tab.c"
     break;
 
-  case 29: /* stmt: GRAPSE '(' MESSAGE ')'  */
-#line 85 "project.y"
-                              { print_token("grapse message", "Syntax ok");}
+  case 28: /* stmt: DIABASE '(' var_list ')'  */
+#line 79 "project.y"
+                                { print_token("diabase", "Syntax ok");}
 #line 1340 "project.tab.c"
     break;
 
-  case 30: /* stmt: EPESTREPSE expr  */
-#line 86 "project.y"
-                       { print_token("epestrepse", "Syntax ok");}
+  case 29: /* stmt: GRAPSE '(' var_list ')'  */
+#line 80 "project.y"
+                               { print_token("grapse", "Syntax ok");}
 #line 1346 "project.tab.c"
     break;
 
-  case 32: /* loops: OSO '(' condition ')' LBRACE stmt_list RBRACE  */
-#line 90 "project.y"
-                                                     {print_token("OSO", "Syntax ok");}
+  case 30: /* stmt: GRAPSE '(' MESSAGE ')'  */
+#line 81 "project.y"
+                              { print_token("grapse message", "Syntax ok");}
 #line 1352 "project.tab.c"
     break;
 
-  case 33: /* loops: AN '(' condition ')' LBRACE stmt_list RBRACE ALLIWS LBRACE stmt_list RBRACE  */
-#line 91 "project.y"
-                                                                                   {print_token("AN", "Syntax ok");}
+  case 31: /* stmt: EPESTREPSE expr  */
+#line 82 "project.y"
+                       { print_token("epestrepse", "Syntax ok");}
 #line 1358 "project.tab.c"
     break;
 
-  case 34: /* loops: GIA '(' expr SEMI condition SEMI expr ')' LBRACE stmt_list RBRACE  */
-#line 92 "project.y"
-                                                                         {print_token("GIA", "Syntax ok");}
+  case 33: /* loops: OSO '(' condition ')' LBRACE stmt_list RBRACE  */
+#line 86 "project.y"
+                                                     {print_token("OSO", "Syntax ok");}
 #line 1364 "project.tab.c"
     break;
 
-  case 36: /* var_list: var_list ',' expr  */
-#line 95 "project.y"
-                             { print_token(",", "Syntax ok"); }
+  case 34: /* loops: AN '(' condition ')' LBRACE stmt_list RBRACE ALLIWS LBRACE stmt_list RBRACE  */
+#line 87 "project.y"
+                                                                                   {print_token("AN", "Syntax ok");}
 #line 1370 "project.tab.c"
     break;
 
+  case 35: /* loops: GIA '(' expr SEMI condition SEMI expr ')' LBRACE stmt_list RBRACE  */
+#line 88 "project.y"
+                                                                         {print_token("GIA", "Syntax ok");}
+#line 1376 "project.tab.c"
+    break;
 
-#line 1374 "project.tab.c"
+  case 37: /* var_list: var_list ',' expr  */
+#line 91 "project.y"
+                             { print_token(",", "Syntax ok"); }
+#line 1382 "project.tab.c"
+    break;
+
+
+#line 1386 "project.tab.c"
 
       default: break;
     }
@@ -1563,27 +1575,30 @@ yyreturnlab:
   return yyresult;
 }
 
-#line 100 "project.y"
+#line 94 "project.y"
 
 
 int my_fun() {
     int c;
-    while ( ( c=getchar() ) ==' ');
-    if ( (c=='.') || (isdigit(c)) ) {
-    ungetc(c, stdin);
-    scanf("%lf", &yylval);
-    return NUMBER;
+    while ((c = getchar()) == ' ');
+    if ((c == '.') || (isdigit(c))) {
+        ungetc(c, stdin);
+        scanf("%lf", &yylval);
+        return NUMBER;
+    } else if (isalpha(c)) {
+        ungetc(c, stdin);
+        scanf("%*c");
+        yylval = 0;
+        return SYMBOL;
     }
-return c;
+    return c;
 }
 
 int main() {
-    yyin= fopen("wll1 an-n.txt", "r");
-    yyout= fopen("wll_analysis.txt", "w");
+    yyin = fopen("wll1 gia-n.txt", "r");
+    yyout = fopen("wll_analysis.txt", "w");
     yyparse();
     fclose(yyin); 
     fclose(yyout); 
     return 0;
 }
-
-
