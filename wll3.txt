@@ -1,0 +1,57 @@
+# lib
+kyrio_meros() {   
+
+    grapse("Auto to programma ypologizei to athroisma, tin afairesi, ton pollaplasiasmo, tin diairesi, an o enas arithmos einai megaliteros, mikroteros, isos i diaforetikos tou allou.");
+    
+    akeraios x;
+    grapse("Poses fores theleis na trexeis auto to programma?");
+    diabase(x);
+    
+    akeraios i;
+    gia(i=0;i<x;i=i+1){
+
+        pragmatikos number1, number2;
+        diabase(number1,number2);
+
+        grapse("To athroisma ton Number1 kai Number2 einai : ");
+        pragmatikos athr;
+        athr = number1 + number2;
+        grapse(athr);
+
+        grapse("I afairesi tou Number2 apo ton Number1 einai : ");
+        pragmatikos afair;
+        afair = number1 - number2;
+        grapse(afair);
+
+        grapse("O pollaplasiasmos ton Number1 kai Number2 einai : ");
+        pragmatikos polapl;
+        polapl = number1 * number2;
+        grapse(polapl);
+
+        grapse("I diairesi tou Number1 me ton Number2 einai : ");
+        pragmatikos diair;
+        diair = number1 / number2;
+        grapse(diair);
+
+        an(number1>number2){
+            grapse("O Number1 einai megaliteros tou Number2");
+        }alliws{
+            grapse("O Number1 einai mikroteros tou Number2");
+        }
+
+        an(number1>=number2){
+            grapse("O Number1 einai megaliteros i isos tou Number2");
+        }alliws{
+            grapse("O Number1 einai mikroteros tou Number2");
+        }
+
+        an(number1==number2){
+            grapse("O Number1 einai isos tou Number2");
+        }alliws{
+            grapse("O Number1 den einai isos tou Number2");
+        }
+
+    }
+    epestrepse 0;
+
+}

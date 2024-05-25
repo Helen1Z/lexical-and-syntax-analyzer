@@ -1,24 +1,26 @@
+(*Auto to txt exei lathi etsi oste na fanei i leitourgia tou project*)
+
 # lib
 kyrio_meros() {   
 
     grapse("Auto to programma ypologizei ton meso oro dio arithmon.");
-    akeraios i;
+    akeraio i; (*edo*)
     grapse("Poses fores theleis na trexeis auto to programma?");
 
 
-    diabase(i);
+    diavase(i);  (*edo*)
 
     leksh string1;
     (*string1 = "To apotelesma einai";*)
 
-    oso(i>0){
+    oso(i-0){  (*edo*)
 
         pragmatikos number1, number2, sum;
         akeraios count;
         
         grapse("Enter two numbers: ");
         (*diabase(number1, number2);*)
-        gia(i=1;i<3;i=i+1){
+        gia(i==1;i<3;i=i+1){               (*edo*)
             diabase(numberi);
         }
 
@@ -34,4 +36,3 @@ kyrio_meros() {
     epestrepse 0;
 
 }
-
