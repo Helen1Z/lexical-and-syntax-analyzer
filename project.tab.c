@@ -1209,13 +1209,13 @@ yyreduce:
 
   case 5: /* stmt_list: stmt SEMI  */
 #line 48 "project.y"
-                      {print_token(";", "Syntax ok"); }
+                      {print_token("; Semicolon", "Syntax ok"); }
 #line 1214 "project.tab.c"
     break;
 
   case 6: /* stmt_list: stmt_list stmt SEMI  */
 #line 49 "project.y"
-                                {print_token(";", "Syntax ok"); }
+                                {print_token("; Semicolon", "Syntax ok"); }
 #line 1220 "project.tab.c"
     break;
 
@@ -1227,73 +1227,73 @@ yyreduce:
 
   case 10: /* condition: expr '<' expr  */
 #line 57 "project.y"
-                          {yyval = yyvsp[-2] < yyvsp[0]; print_token("<", "Syntax ok");}
+                          {yyval = yyvsp[-2] < yyvsp[0]; print_token("< Comparison operator", "Syntax ok");}
 #line 1232 "project.tab.c"
     break;
 
   case 11: /* condition: expr '>' expr  */
 #line 58 "project.y"
-                          {yyval = yyvsp[-2] > yyvsp[0]; print_token(">", "Syntax ok");}
+                          {yyval = yyvsp[-2] > yyvsp[0]; print_token("> Comparison operator", "Syntax ok");}
 #line 1238 "project.tab.c"
     break;
 
   case 12: /* condition: expr NEQ expr  */
 #line 59 "project.y"
-                          {yyval = yyvsp[-2] != yyvsp[0]; print_token("!=", "Syntax ok");}
+                          {yyval = yyvsp[-2] != yyvsp[0]; print_token("!= Comparison operator", "Syntax ok");}
 #line 1244 "project.tab.c"
     break;
 
   case 13: /* condition: expr EQ expr  */
 #line 60 "project.y"
-                         {yyval = yyvsp[-2] == yyvsp[0]; print_token("==", "Syntax ok");}
+                         {yyval = yyvsp[-2] == yyvsp[0]; print_token("== Comparison operator", "Syntax ok");}
 #line 1250 "project.tab.c"
     break;
 
   case 14: /* condition: expr LEQ expr  */
 #line 61 "project.y"
-                          {yyval = yyvsp[-2] <= yyvsp[0]; print_token("<=", "Syntax ok");}
+                          {yyval = yyvsp[-2] <= yyvsp[0]; print_token("<= Comparison operator", "Syntax ok");}
 #line 1256 "project.tab.c"
     break;
 
   case 15: /* condition: expr GEQ expr  */
 #line 62 "project.y"
-                          {yyval = yyvsp[-2] >= yyvsp[0]; print_token(">=", "Syntax ok");}
+                          {yyval = yyvsp[-2] >= yyvsp[0]; print_token(">= Comparison operator", "Syntax ok");}
 #line 1262 "project.tab.c"
     break;
 
   case 16: /* expr: expr '+' expr  */
 #line 65 "project.y"
-                     {yyval = yyvsp[-2] + yyvsp[0]; print_token("+", "Syntax ok");}
+                     {yyval = yyvsp[-2] + yyvsp[0]; print_token("+ Arithmetic operator", "Syntax ok");}
 #line 1268 "project.tab.c"
     break;
 
   case 17: /* expr: expr '-' expr  */
 #line 66 "project.y"
-                     {yyval = yyvsp[-2] - yyvsp[0]; print_token("-", "Syntax ok");}
+                     {yyval = yyvsp[-2] - yyvsp[0]; print_token("- Arithmetic operator", "Syntax ok");}
 #line 1274 "project.tab.c"
     break;
 
   case 18: /* expr: expr '*' expr  */
 #line 67 "project.y"
-                     {yyval = yyvsp[-2] * yyvsp[0]; print_token("*", "Syntax ok");}
+                     {yyval = yyvsp[-2] * yyvsp[0]; print_token("* Arithmetic operator", "Syntax ok");}
 #line 1280 "project.tab.c"
     break;
 
   case 19: /* expr: expr '/' expr  */
 #line 68 "project.y"
-                      {yyval = yyvsp[-2] / yyvsp[0]; print_token("/", "Syntax ok");}
+                      {yyval = yyvsp[-2] / yyvsp[0]; print_token("/ Arithmetic operator", "Syntax ok");}
 #line 1286 "project.tab.c"
     break;
 
   case 20: /* expr: expr '=' expr  */
 #line 69 "project.y"
-                     {yyval = yyvsp[0]; print_token("=", "Syntax ok");}
+                     {yyval = yyvsp[0]; print_token("= Arithmetic operator", "Syntax ok");}
 #line 1292 "project.tab.c"
     break;
 
   case 21: /* expr: '(' expr ')'  */
 #line 70 "project.y"
-                    {yyval = yyvsp[-1]; print_token("()", "Syntax ok");}
+                    {yyval = yyvsp[-1]; print_token("() Punctuation", "Syntax ok");}
 #line 1298 "project.tab.c"
     break;
 
@@ -1317,67 +1317,67 @@ yyreduce:
 
   case 25: /* stmt: AKER var_list  */
 #line 76 "project.y"
-                     {print_token("akeraios", "Syntax ok");}
+                     {print_token("akeraios Data type", "Syntax ok");}
 #line 1322 "project.tab.c"
     break;
 
   case 26: /* stmt: PRAG var_list  */
 #line 77 "project.y"
-                     {print_token("pragmatikos", "Syntax ok");}
+                     {print_token("pragmatikos Data type", "Syntax ok");}
 #line 1328 "project.tab.c"
     break;
 
   case 27: /* stmt: LEKSH var_list  */
 #line 78 "project.y"
-                      { print_token("leksh", "Syntax ok"); }
+                      { print_token("leksh Data type", "Syntax ok"); }
 #line 1334 "project.tab.c"
     break;
 
   case 28: /* stmt: DIABASE '(' var_list ')'  */
 #line 79 "project.y"
-                                { print_token("diabase", "Syntax ok");}
+                                { print_token("diabase Keyword", "Syntax ok");}
 #line 1340 "project.tab.c"
     break;
 
   case 29: /* stmt: GRAPSE '(' var_list ')'  */
 #line 80 "project.y"
-                               { print_token("grapse", "Syntax ok");}
+                               { print_token("grapse Keyword", "Syntax ok");}
 #line 1346 "project.tab.c"
     break;
 
   case 30: /* stmt: GRAPSE '(' MESSAGE ')'  */
 #line 81 "project.y"
-                              { print_token("grapse message", "Syntax ok");}
+                              { print_token("grapse message Keyword", "Syntax ok");}
 #line 1352 "project.tab.c"
     break;
 
   case 31: /* stmt: EPESTREPSE expr  */
 #line 82 "project.y"
-                       { print_token("epestrepse", "Syntax ok");}
+                       { print_token("epestrepse Keyword", "Syntax ok");}
 #line 1358 "project.tab.c"
     break;
 
   case 33: /* loops: OSO '(' condition ')' LBRACE stmt_list RBRACE  */
 #line 86 "project.y"
-                                                     {print_token("OSO", "Syntax ok");}
+                                                     {print_token("OSO Loop type", "Syntax ok");}
 #line 1364 "project.tab.c"
     break;
 
   case 34: /* loops: AN '(' condition ')' LBRACE stmt_list RBRACE ALLIWS LBRACE stmt_list RBRACE  */
 #line 87 "project.y"
-                                                                                   {print_token("AN", "Syntax ok");}
+                                                                                   {print_token("AN Loop type", "Syntax ok");}
 #line 1370 "project.tab.c"
     break;
 
   case 35: /* loops: GIA '(' expr SEMI condition SEMI expr ')' LBRACE stmt_list RBRACE  */
 #line 88 "project.y"
-                                                                         {print_token("GIA", "Syntax ok");}
+                                                                         {print_token("GIA Loop type", "Syntax ok");}
 #line 1376 "project.tab.c"
     break;
 
   case 37: /* var_list: var_list ',' expr  */
 #line 91 "project.y"
-                             { print_token(",", "Syntax ok"); }
+                             { print_token(", Comma", "Syntax ok"); }
 #line 1382 "project.tab.c"
     break;
 
@@ -1595,7 +1595,7 @@ int my_fun() {
 }
 
 int main() {
-    yyin = fopen("wll1 gia-n.txt", "r");
+    yyin = fopen("wll4.txt", "r");
     yyout = fopen("wll_analysis.txt", "w");
     yyparse();
     fclose(yyin); 

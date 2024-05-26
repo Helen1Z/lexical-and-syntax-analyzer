@@ -3,7 +3,7 @@
 %{
 #include <stdio.h>
 #include "project.tab.h" 
-void ret_print(char *token_type);
+void ret_print();
 void yyerror();
 %}
 
@@ -19,57 +19,55 @@ digit [0-9]
 <COMMENT2>"*)" BEGIN(INITIAL);
 <COMMENT2>[*)]
 
-"akeraios" {ret_print( "Data type"); return AKER; } 
-"pragmatikos" {ret_print( "Data type"); return PRAG; } 
-"leksh" {ret_print( "Data type"); return LEKSH; } 
-"grapse" {ret_print( "Keyword"); return GRAPSE; }
-"diabase" {ret_print( "Keyword"); return DIABASE; }
-"epestrepse" {ret_print( "Keyword"); return EPESTREPSE; }
+"akeraios" { ret_print(); return AKER; } 
+"pragmatikos" { ret_print(); return PRAG; } 
+"leksh" { ret_print(); return LEKSH; } 
+"grapse" { ret_print(); return GRAPSE; }
+"diabase" { ret_print(); return DIABASE; }
+"epestrepse" { ret_print(); return EPESTREPSE; }
 
-"kyrio_meros()" {ret_print( "Kyrio meros"); return KYRIO_MEROS; }
+"kyrio_meros()" { ret_print(); return KYRIO_MEROS; }
 
-"oso" {ret_print( "Loop type"); return OSO; } 
-"gia" {ret_print( "Loop type"); return GIA; } 
-"an" {ret_print( "Loop type"); return AN; } 
-"alliws" {ret_print( "Loop type"); return ALLIWS; } 
+"oso" { ret_print(); return OSO; } 
+"gia" { ret_print(); return GIA; } 
+"an" { ret_print(); return AN; } 
+"alliws" { ret_print(); return ALLIWS; } 
 
-"#"  {ret_print( "Include"); return INC; } 
-"lib"  {ret_print( "Libraries"); return LIB; } 
+"#"  {ret_print(); return INC; } 
+"lib"  {ret_print(); return LIB; } 
 
 
-"+"  {ret_print( "Arithmetic operator"); return '+'; } 
-"-"  {ret_print( "Arithmetic operator"); return '-'; } 
-"*"  {ret_print( "Arithmetic operator"); return '*'; } 
-"/"  {ret_print( "Arithmetic operator"); return '/'; } 
+"+"  { ret_print(); return '+'; } 
+"-"  { ret_print(); return '-'; } 
+"*"  { ret_print(); return '*'; } 
+"/"  { ret_print(); return '/'; } 
 
-"("  {ret_print( "Punctuation"); return '('; } 
-")"  {ret_print( "Punctuation"); return ')'; } 
-"{"  {ret_print( "Punctuation"); return LBRACE; } 
-"}"  {ret_print( "Punctuation"); return RBRACE; } 
+"("  { ret_print(); return '('; } 
+")"  { ret_print(); return ')'; } 
+"{"  { ret_print(); return LBRACE; } 
+"}"  { ret_print(); return RBRACE; } 
 
-","  {ret_print( "Comma"); return ','; } 
-";"  {ret_print( "Semicolon"); return SEMI; } 
-"="  {ret_print( "Assignment operator"); return '='; } 
+","  { ret_print(); return ','; } 
+";"  { ret_print(); return SEMI; } 
+"="  { ret_print(); return '='; } 
 
-"<"  {ret_print( "Comparison operator"); return '<'; } 
-">"  {ret_print( "Comparison operator"); return '>'; } 
-"<="  {ret_print( "Comparison operator"); return LEQ; } 
-">="  {ret_print( "Comparison operator"); return GEQ; }
-"=="  {ret_print( "Comparison operator"); return EQ; } 
-"!="  {ret_print( "Comparison operator"); return NEQ; } 
+"<"  { ret_print(); return '<'; } 
+">"  { ret_print(); return '>'; } 
+"<="  { ret_print(); return LEQ; } 
+">="  { ret_print(); return GEQ; }
+"=="  { ret_print(); return EQ; } 
+"!="  { ret_print(); return NEQ; } 
 
-{digit}+ {yylval = atoi(yytext); ret_print("Digit"); return NUMBER;} 
-[a-zA-Z][a-zA-Z0-9]*	{ ret_print("Symbol"); return SYMBOL; }
-\"[^\"]*\"  { ret_print("Message"); return MESSAGE; }
+{digit}+ {yylval = atoi(yytext); ret_print(); return NUMBER;} 
+[a-zA-Z][a-zA-Z0-9]*	{ ret_print(); return SYMBOL; }
+\"[^\"]*\"  { ret_print(); return MESSAGE; }
 [ \t\n]+ {}
 
 %%
-//\"([^\"\n]|\\.)*\" { yylval.str = strdup(yytext); ret_print("LEKSH"); return LEKSH; }
 
-
-void ret_print(char *token_type){
-printf("%s\t%s\n", yytext, token_type);
-fprintf(yyout,"%s\t%s\n", yytext, token_type);
+void ret_print(){
+printf("%s\t\n", yytext);
+fprintf(yyout,"%s\t\n", yytext);
 }
 
 int yywrap() {

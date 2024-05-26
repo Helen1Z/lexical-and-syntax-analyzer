@@ -45,8 +45,8 @@ program: main
 main : KYRIO_MEROS LBRACE stmt_list RBRACE { print_token("kyrio_meros", "Syntax ok");} 
      ;
 
-stmt_list : stmt SEMI {print_token(";", "Syntax ok"); }
-          | stmt_list stmt SEMI {print_token(";", "Syntax ok"); }
+stmt_list : stmt SEMI {print_token("; Semicolon", "Syntax ok"); }
+          | stmt_list stmt SEMI {print_token("; Semicolon", "Syntax ok"); }
           | loops
           | stmt_list loops
           ;
@@ -54,41 +54,41 @@ stmt_list : stmt SEMI {print_token(";", "Syntax ok"); }
 library : INC LIB { print_token("libraries", "Syntax ok");} 
         ;     
 
-condition : expr '<' expr {$$ = $1 < $3; print_token("<", "Syntax ok");}
-          | expr '>' expr {$$ = $1 > $3; print_token(">", "Syntax ok");}
-          | expr NEQ expr {$$ = $1 != $3; print_token("!=", "Syntax ok");}
-          | expr EQ expr {$$ = $1 == $3; print_token("==", "Syntax ok");}
-          | expr LEQ expr {$$ = $1 <= $3; print_token("<=", "Syntax ok");}
-          | expr GEQ expr {$$ = $1 >= $3; print_token(">=", "Syntax ok");}
+condition : expr '<' expr {$$ = $1 < $3; print_token("< Comparison operator", "Syntax ok");}
+          | expr '>' expr {$$ = $1 > $3; print_token("> Comparison operator", "Syntax ok");}
+          | expr NEQ expr {$$ = $1 != $3; print_token("!= Comparison operator", "Syntax ok");}
+          | expr EQ expr {$$ = $1 == $3; print_token("== Comparison operator", "Syntax ok");}
+          | expr LEQ expr {$$ = $1 <= $3; print_token("<= Comparison operator", "Syntax ok");}
+          | expr GEQ expr {$$ = $1 >= $3; print_token(">= Comparison operator", "Syntax ok");}
           ;
 
-expr : expr '+' expr {$$ = $1 + $3; print_token("+", "Syntax ok");}
-     | expr '-' expr {$$ = $1 - $3; print_token("-", "Syntax ok");}
-     | expr '*' expr {$$ = $1 * $3; print_token("*", "Syntax ok");}
-     | expr '/' expr  {$$ = $1 / $3; print_token("/", "Syntax ok");}
-     | expr '=' expr {$$ = $3; print_token("=", "Syntax ok");}
-     | '(' expr ')' {$$ = $2; print_token("()", "Syntax ok");}
+expr : expr '+' expr {$$ = $1 + $3; print_token("+ Arithmetic operator", "Syntax ok");}
+     | expr '-' expr {$$ = $1 - $3; print_token("- Arithmetic operator", "Syntax ok");}
+     | expr '*' expr {$$ = $1 * $3; print_token("* Arithmetic operator", "Syntax ok");}
+     | expr '/' expr  {$$ = $1 / $3; print_token("/ Arithmetic operator", "Syntax ok");}
+     | expr '=' expr {$$ = $3; print_token("= Arithmetic operator", "Syntax ok");}
+     | '(' expr ')' {$$ = $2; print_token("() Punctuation", "Syntax ok");}
      | '-' expr %prec UMINUS {$$ = -$2; print_token("UMINUS", "Syntax ok");}
      | NUMBER { $$ = $1; print_token("number", "Syntax ok"); }
      | SYMBOL { $$ = 0; print_token("symbol", "Syntax ok"); }
      ;
 
-stmt : AKER var_list {print_token("akeraios", "Syntax ok");} 
-     | PRAG var_list {print_token("pragmatikos", "Syntax ok");} 
-     | LEKSH var_list { print_token("leksh", "Syntax ok"); }
-     | DIABASE '(' var_list ')' { print_token("diabase", "Syntax ok");}
-     | GRAPSE '(' var_list ')' { print_token("grapse", "Syntax ok");}
-     | GRAPSE '(' MESSAGE ')' { print_token("grapse message", "Syntax ok");}
-     | EPESTREPSE expr { print_token("epestrepse", "Syntax ok");}
+stmt : AKER var_list {print_token("akeraios Data type", "Syntax ok");} 
+     | PRAG var_list {print_token("pragmatikos Data type", "Syntax ok");} 
+     | LEKSH var_list { print_token("leksh Data type", "Syntax ok"); }
+     | DIABASE '(' var_list ')' { print_token("diabase Keyword", "Syntax ok");}
+     | GRAPSE '(' var_list ')' { print_token("grapse Keyword", "Syntax ok");}
+     | GRAPSE '(' MESSAGE ')' { print_token("grapse message Keyword", "Syntax ok");}
+     | EPESTREPSE expr { print_token("epestrepse Keyword", "Syntax ok");}
      | expr
      ;
 
-loops: OSO '(' condition ')' LBRACE stmt_list RBRACE {print_token("OSO", "Syntax ok");}
-     | AN '(' condition ')' LBRACE stmt_list RBRACE ALLIWS LBRACE stmt_list RBRACE {print_token("AN", "Syntax ok");}
-     | GIA '(' expr SEMI condition SEMI expr ')' LBRACE stmt_list RBRACE {print_token("GIA", "Syntax ok");}
+loops: OSO '(' condition ')' LBRACE stmt_list RBRACE {print_token("OSO Loop type", "Syntax ok");}
+     | AN '(' condition ')' LBRACE stmt_list RBRACE ALLIWS LBRACE stmt_list RBRACE {print_token("AN Loop type", "Syntax ok");}
+     | GIA '(' expr SEMI condition SEMI expr ')' LBRACE stmt_list RBRACE {print_token("GIA Loop type", "Syntax ok");}
 
 var_list : expr
-         | var_list ',' expr { print_token(",", "Syntax ok"); }
+         | var_list ',' expr { print_token(", Comma", "Syntax ok"); }
          ;
 
 %%
@@ -110,7 +110,7 @@ int my_fun() {
 }
 
 int main() {
-    yyin = fopen("wll1 gia-n.txt", "r");
+    yyin = fopen("wll4.txt", "r");
     yyout = fopen("wll_analysis.txt", "w");
     yyparse();
     fclose(yyin); 

@@ -1,0 +1,19 @@
+#	
+lib	
+libraries Syntax ok
+
+kyrio_meros()	
+{	
+grapse	
+(	
+"Auto to programma ypologizei ton meso oro dio arithmon."	
+)	
+grapse message Keyword Syntax ok
+
+;	
+; Semicolon Syntax ok
+
+akeraio	
+symbol Syntax ok
+
+i	
