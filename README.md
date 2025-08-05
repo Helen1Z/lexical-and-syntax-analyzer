@@ -33,7 +33,7 @@ The Lexical and Syntax Analyzer is a crucial component in the compilation proces
 
 1. **Clone the repo**.
    ```sh
-   gh repo clone helenzina/Lexical-And-Syntax-Analyzer
+   git clone https://github.com/helenzina/Lexical-And-Syntax-Analyzer
    ```
 2. **Install Flex and Bison by typing the following commands in a Linux terminal**:
     ```sh
