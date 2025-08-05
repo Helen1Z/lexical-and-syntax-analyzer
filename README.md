@@ -20,7 +20,7 @@ This project was built with the following:
  ## About The Project
  
 <p align="center">
-<img src="https://github.com/helenzina/Lexical-And-Syntax-Analyzer/blob/main/run.gif" width="500" title="arm_in_position"/>
+<img src="https://github.com/helenzina/Lexical-And-Syntax-Analyzer/blob/main/run.gif" width="500" title="run"/>
 </p>
 
 The Lexical and Syntax Analyzer is a crucial component in the compilation process of programming languages. This project provides tools to analyze the structure and syntax of code written in a specific programming language. It breaks down the source code into tokens and checks for grammatical structure, ensuring that the code adheres to the rules of the language.
@@ -31,11 +31,11 @@ The Lexical and Syntax Analyzer is a crucial component in the compilation proces
  
 <p>Please follow the following steps for successful installation:</p>
 
-1. Clone the repo
+1. **Clone the repo**.
    ```sh
    gh repo clone helenzina/Lexical-And-Syntax-Analyzer
    ```
-2. Install Flex and Bison by typing the following commands in a Linux terminal:
+2. **Install Flex and Bison by typing the following commands in a Linux terminal**:
     ```sh
    sudo apt-get update
     ```
@@ -52,32 +52,34 @@ To run the Lexical and Syntax Analyzer, follow these steps:
 
 1. **Open the terminal of your IDE**.
 
-2. **Navigate to the code directory**:
+2. **Navigate to the code directory**.
     ```sh
     cd code
     ```
 
-3. **Generate the lexical analyzer using Flex**:
+3. **Generate the lexical analyzer using Flex**.
     ```sh
     flex project.l
     ```
 
-4. **Generate the syntax analyzer using Bison**:
+4. **Generate the syntax analyzer using Bison**.
     ```sh
     bison -d project.y
     ```
 
-5. **Compile the generated C code using GCC**:
+5. **Compile the generated C code using GCC**.
     ```sh
     gcc -o a.out project.tab.c lex.yy.c
     ```
 
-6. **Run the compiled program**:
+6. **Run the compiled program**.
     ```sh
     ./a.out
     ```
 <p>In addition, you can change the path for a different input file in <b>project.y</b> to experiment. You can find more files in the <b>examples</b> folder or you can create your own. To make sure you use the correct code in terms of lexical and syntax analysis of the GPL programming language, here is the structure table below:</p>
-<img src="https://github.com/helenzina/Lexical-And-Syntax-Analyzer/blob/main/structure_table.png" width="400" title="structure_table"/>
+<p align="center">
+ <img src="https://github.com/helenzina/Lexical-And-Syntax-Analyzer/blob/main/structure_table.png" width="400" title="structure_table"/>
+</p>
 
  ## Features
 
@@ -121,7 +123,7 @@ Here are some examples of the lexical and syntax analyzer running:
 
 <td align="center">
 <a href="https://github.com/helenzina">
-<img src="https://avatars.githubusercontent.com/u/128386591?v=4" width="100;" alt="Helen Zina"/><br>
+<img src="https://avatars.githubusercontent.com/u/128386591?v=4" width="100" alt="Helen Zina"/><br>
 <sub>
 <b>Helen Zina (Me)</b>
 </sub>
@@ -130,7 +132,7 @@ Here are some examples of the lexical and syntax analyzer running:
 
 <td align="center">
 <a href="https://github.com/alk-an">
-<img src="https://avatars.githubusercontent.com/u/147655333?v=4" width="100px;" alt="Alkinoos Anastasiadis"/><br>
+<img src="https://avatars.githubusercontent.com/u/147655333?v=4" width="100" alt="Alkinoos Anastasiadis"/><br>
 <sub>
 <b>Alkinoos Anastasiadis</b>
 </sub>
